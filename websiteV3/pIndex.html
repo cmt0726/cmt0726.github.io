@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html id="doc">
+<head>
+        <meta charset="utf-8">
+    <title>Pizza Picker</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="pizzaindex.css"/>
+    <script  src="data.json"></script>   
+    <script data-main="scripts/page/common" type="text/javascript" src="scripts/require.js"></script>
+    <script>
+            require(['common'],function(){
+                require(['search']);
+                //require(['objectTest']);
+                //require(['pizzaindex.mjs']);               
+            });
+    </script>
+    
+    <script>
+        function initMap() {
+        // The location of Uluru
+        var uluru = {lat: -25.344, lng: 131.036};
+        // The map, centered at Uluru
+        var map = new google.maps.Map(
+            document.getElementById('map'), {zoom: 4, center: uluru});
+        // The marker, positioned at Uluru
+        var marker = new google.maps.Marker({position: uluru, map: map});
+    }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDiGZCq3s2uzVqCbsiKOeUYvF6xJQ3Wtng&callback=initMap"
+    type="text/javascript">
+    </script>
+
+
+</head>
+<body id="main">
+    <header id="nav">
+        <nav id="search">
+            <ul id="nav_list">
+                <li class="nav_1"><div class = "navText">TEST</div></li>
+                <li class="nav_1"><div class = "navText">TEST</div></li>
+                <li class="nav_1"><div class = "navText">TEST</div></li>
+                <li class="nav_1"><div class = "navText">TEST</div></li>
+                <li class="nav_1"><div class = "navText">TEST</div></li>
+            </ul>
+        </nav>
+    </header>
+    <div id="main_content">
+        <div id="sidebar_l">
+            <div id="form_container">
+                <form id="address_form">
+                    <div id="input_1" class="inputBox">    
+                        <label for="zipcode" class="input_label">Enter Pizza: </label>
+                        <input type="text" id="faddress" name="firstAddress" 
+                        placeholder="Line One..." maxlength="15" class="input_Box"><br>
+                    </div>
+                    <div class="submit">
+                        <button type="button" id="button1">Button</button>
+                    </div>
+                    <div id="input_2" class="inputBox">
+                        <label for="zipcodeReal" class="input_label">Enter Zipcode: </label>
+                        <input type="text" id="zaddress" name="zipAddress"
+                        placeholder="Zipcode..." maxlength="15" class="input_Box"><br>
+                    </div>
+                    <div class="submit">
+                        <button type="button" id="button2">Button</button>
+                    </div>
+                </form>
+                <hr class="linebreak">
+            </div>
+            <div id="jumpToTop">
+                <a href="#nav_list">Jump To Top!</a>
+            </div>
+        </div>
+        <div id="sidebar_r">
+            <div id="map">
+
+            </div>
+            <div id="text"></div>
+        </div>
+    </div>
+    Hello!
+</body>
+</html>
