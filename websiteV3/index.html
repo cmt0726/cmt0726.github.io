@@ -9,6 +9,7 @@
     <script  src="data.json"></script>   
     <script data-main="scripts/page/common" type="text/javascript" src="scripts/require.js"></script>
     <script>
+        
             require(['common'],function(){
                 require(['search']);
                 require(['zipsearch']);
@@ -16,7 +17,11 @@
                 //require(['pizzaindex.mjs']);               
             });
     </script>
-    
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDiGZCq3s2uzVqCbsiKOeUYvF6xJQ3Wtng&callback=initMap"
+    type="text/javascript">
+    </script>
+
     <script>
         function initMap() {
         // The location of Uluru
@@ -28,11 +33,7 @@
         var marker = new google.maps.Marker({position: uluru, map: map});
     }
     </script>
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDiGZCq3s2uzVqCbsiKOeUYvF6xJQ3Wtng&callback=initMap"
-    type="text/javascript">
-    </script>
-
+    
 
 </head>
 <body id="main">
