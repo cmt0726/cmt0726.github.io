@@ -18,25 +18,42 @@
             });
     </script>
     <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDiGZCq3s2uzVqCbsiKOeUYvF6xJQ3Wtng&callback=initMap"
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDiGZCq3s2uzVqCbsiKOeUYvF6xJQ3Wtng&callback=initialize"
     type="text/javascript">
     </script>
 
     <script>
-        function initMap() {
-        // The location of Uluru
-        var uluru = {lat: -25.344, lng: 131.036};
-        // The map, centered at Uluru
-        var map = new google.maps.Map(
-            document.getElementById('map'), {zoom: 4, center: uluru});
-        // The marker, positioned at Uluru
-        var marker = new google.maps.Marker({position: uluru, map: map});
+         var geocoder;
+  var map;
+  function initialize() {
+    geocoder = new google.maps.Geocoder();
+    var latlng = new google.maps.LatLng(-34.397, 150.644);
+    var mapOptions = {
+      zoom: 8,
+      center: latlng
     }
+    map = new google.maps.Map(document.getElementById('map'), mapOptions);
+  }
+
+  function codeAddress() {
+    var address = document.getElementById('zaddress').value;
+    geocoder.geocode( { 'address': address}, function(results, status) {
+      if (status == 'OK') {
+        map.setCenter(results[0].geometry.location);
+        var marker = new google.maps.Marker({
+            map: map,
+            position: results[0].geometry.location
+        });
+      } else {
+        alert('Geocode was not successful for the following reason: ' + status);
+      }
+    });
+  }
     </script>
     
 
 </head>
-<body id="main">
+<body id="main" onload="initialize()">
     <header id="nav">
         <nav id="search">
             <ul id="nav_list">
@@ -66,7 +83,7 @@
                         placeholder="Zipcode..." maxlength="15" class="input_Box"><br>
                     </div>
                     <div class="submit">
-                        <button type="button" id="button2">Button</button>
+                        <button type="button" id="button2" onclick="codeAddress()">Button</button>
                     </div>
                 </form>
                 <hr class="linebreak">
