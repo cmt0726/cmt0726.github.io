@@ -17,12 +17,56 @@
                 //require(['pizzaindex.mjs']);               
             });
     </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDiGZCq3s2uzVqCbsiKOeUYvF6xJQ3Wtng&callback=initialize"
     type="text/javascript">
     </script>
 
     <script>
+        const Url = 'https://maps.googleapis.com/maps/api/place/textsearch/json?query=pizza+in+Ellensburg&key=AIzaSyBbTOqK2j2A-iIAdAcC7I4s8K39Iw1reIU';
+    
+        // const otherPram={
+        //     headers:{
+        //         "dataType": "json",
+        //         "Content-Type":"application/json",
+        //         'Access-Control-Allow-Origin':'*',
+        //         'Access-Control-Allow-Methods':'GET',
+        //     },
+        //     mode: "no-cors",
+        //     method:"GET"
+        // };
+
+        // fetch(Url,otherPram)
+        // .then(data=>{return data.json()})
+        // .then(res=>{console.log(res)})
+        // .catch(error=>console.log(error))
+        
+        $(document).ready(function(){
+            const Url = 'https://maps.googleapis.com/maps/api/place/textsearch/json?query=pizza+in+Ellensburg&key=AIzaSyBbTOqK2j2A-iIAdAcC7I4s8K39Iw1reIU';
+            $('#button2').click(function(){
+                $.ajax({
+                    url: Url,
+                    type: "POST",
+                    contentType: 'application/json',
+                    dataType: 'json',
+                    responseType: 'application/json',
+                    headers: {
+                        "Content-Type":"application/json",
+                        'Access-Control-Allow-Origin':'*',
+                        'Access-Control-Allow-Methods':'GET',
+                    },
+                    success: function(result){
+                        console.log(result)
+                    },
+                    error:function(error){
+                        console.log(`Error ${error}`)
+                    },
+                })
+            })
+        })
+        //()
+            
         var geocoder;
         var map;
   function initialize() {
@@ -56,6 +100,7 @@
     
 
 </head>
+
 <body id="main" onload="initialize()">
     <header id="nav">
         <nav id="search">
@@ -71,7 +116,7 @@
     <div id="main_content">
         <div id="sidebar_l">
             <div id="form_container">
-                <form id="address_form">
+                <form id="address_form" method="GET" enctype="text/html">
                     <div id="input_1" class="inputBox">    
                         <label for="zipcode" class="input_label">Enter Pizza: </label>
                         <input type="text" id="faddress" name="firstAddress" 
@@ -86,7 +131,7 @@
                         placeholder="Zipcode..." maxlength="15" class="input_Box"><br>
                     </div>
                     <div class="submit">
-                        <button type="button" id="button2" onclick="codeAddress()">Button</button>
+                        <button type="button" id="button2" onclick="">Button</button>
                     </div>
                 </form>
                 <hr class="linebreak">
