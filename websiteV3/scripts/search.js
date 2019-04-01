@@ -3,7 +3,7 @@ define(["fuzzball"], function(fuzzball) {
 
     function getPizzaMatches() {
     
-    fetch('http://127.0.0.1:5500/data.json')
+    fetch('http://127.0.0.1:5500/websiteV3/data.json')
         .then(function(response){
             return response.json();
         })
@@ -50,8 +50,6 @@ define(["fuzzball"], function(fuzzball) {
                 let height = 1000; 
                 document.getElementById("main_content").style.height = `${ height }px`;
                 for(let i = 0, j=100; i < array.length; i++, j+=200) {
-                    let box = document.createElement("div");
-                    document.getElementById(id).appendChild(box);
                     makeImage(url, "100", "100", id);
                     let line = document.createElement("hr");
                     document.getElementById(id).appendChild(line);

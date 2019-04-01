@@ -15,6 +15,11 @@
     margin: 0px;
 }
 
+#map {
+    border-style: solid;
+    border-left-style: none;
+}
+
 #nav {
     outline: 2px solid black;
     
