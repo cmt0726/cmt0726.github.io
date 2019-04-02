@@ -44,16 +44,16 @@
                         'Access-Control-Allow-Origin':'*',
                         'Access-Control-Allow-Methods':'GET, POST'
                     },
-                    success: function(result){
-                        
+                    success: function(result){                      
                         function codeAddress() {
-                            for(let i = 0; i < 5; i++) {
+                            for(let i = 0; i < 10; i++) {
                                 geocoder.geocode( { 'address': result.results[i].formatted_address}, function(results, status) {
                                     if (status == 'OK') {
                                         console.log(result.results[i].formatted_address + '\n' + result.results[i].name)
                                         map.setCenter(result.results[i].geometry.location);
                                         var marker = new google.maps.Marker({
                                         map: map,
+                                        zoom: 12,
                                         position: result.results[i].geometry.location
                                         });
                                     } else {
@@ -63,7 +63,6 @@
                             }
                         }
                         codeAddress();
-                        //console.log(result.results[1].formatted_address + '\n' + result.results[1].name)
                     },
                     error:function(error){
                         console.log(`Error ${error}`)
