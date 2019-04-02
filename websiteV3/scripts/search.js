@@ -2,7 +2,7 @@ define(["fuzzball"], function(fuzzball) {
     fuzz = require('fuzzball');
     function getPizzaMatches() {
     
-    fetch('http://127.0.0.1:5500/websiteV3/data.json')
+    fetch('https://cmt0726.github.io/websiteV3/data.json')
         .then(function(response){
             return response.json();
         })
