@@ -81,6 +81,11 @@
     font-size: 18px;
 }
 
+#webTitle {
+    font-size: 30px;
+    background-color: rgba(0, 0, 255, 0.4);
+}
+
 #map {
     width: 100%;
     height: 400px;
