@@ -1,6 +1,5 @@
 define(["fuzzball"], function(fuzzball) {
     fuzz = require('fuzzball');
-
     function getPizzaMatches() {
     
     fetch('http://127.0.0.1:5500/websiteV3/data.json')
@@ -44,28 +43,36 @@ define(["fuzzball"], function(fuzzball) {
                     image.setAttribute("height", height);
                     document.getElementById(id).appendChild(image);
             }
-            
+
             function createElem(id, array, element, url) {
-                document.getElementById(id).innerText = '';
+                //create container for Pizza Elements
+                let rDiv = document.createElement("div");
+                rDiv.id = "rBox"
+                //appends this container to sidebar_r
+                document.getElementById(id).appendChild(rDiv);
+                //resets the elements to nothing
+                document.getElementById("rBox").innerText = '';
+                //sets the page height
                 let height = 1000; 
                 document.getElementById("main_content").style.height = `${ height }px`;
+
                 for(let i = 0, j=100; i < array.length; i++, j+=200) {
-                    makeImage(url, "100", "100", id);
+                    //creates the pizza image
+                    makeImage(url, "100", "100", 'rBox');
                     let line = document.createElement("hr");
-                    document.getElementById(id).appendChild(line);
+                    document.getElementById("rBox").appendChild(line);
                     //initializes the element   
                     let item = document.createElement(element);
                     //calls createPizza() to edit innerText
                     item.innerText = createPizza(array[i]);
-                    var result = document.getElementById(id).appendChild(item);
-                    //Adds a new line so page flows better
-                    //probably garbage who knows lol
-                    //if (i % 2 === 0) {
+
+                    var result = document.getElementById("rBox").appendChild(item);
+                    //adds new line
                     let lineBreak = document.createElement("br");
-                    document.getElementById(id).appendChild(lineBreak);
-                    //console.log(`${ height + 100}px`)
+                    document.getElementById("rBox").appendChild(lineBreak);
+                    //adds extra height for each element
                     document.getElementById("main_content").style.height = `${ height + j }px`;
-                   // }
+                    hasItems = true;
                 }
                 return result;
             };
@@ -89,11 +96,8 @@ define(["fuzzball"], function(fuzzball) {
             };
         });
         
-    //});
 };
 document.getElementById("button1").addEventListener("click", getPizzaMatches);
 
-    
-    
-    //document.getElementById("button1").addEventListener("click", initMap());
+
 });  

@@ -87,7 +87,7 @@
     background-color: grey;
 }
 
-#sidebar_r > p {
+#rBox > p {
     margin: 25px;
     display: inline-block;
     border-style: solid;
@@ -96,7 +96,7 @@
     background-color: rgba(255, 0, 0, 0.4);
 }
 
-#sidebar_r > img {
+#rBox > img {
     margin-top: 10px;
     border-style: solid;
     border-color: tan;
@@ -104,7 +104,7 @@
     background-color: rgba(255, 185, 81, 0.842);
 }
 
-#sidebar_r > hr, .linebreak {
+#rBox > hr, .linebreak {
     margin: 20px 20px 0 20px;
 }
 

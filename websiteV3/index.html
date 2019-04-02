@@ -25,39 +25,42 @@
 
     <script>
         const Url = 'https://maps.googleapis.com/maps/api/place/textsearch/json?query=pizza+in+Ellensburg&key=AIzaSyBbTOqK2j2A-iIAdAcC7I4s8K39Iw1reIU';
-    
-        // const otherPram={
-        //     headers:{
-        //         "dataType": "json",
-        //         "Content-Type":"application/json",
-        //         'Access-Control-Allow-Origin':'*',
-        //         'Access-Control-Allow-Methods':'GET',
-        //     },
-        //     mode: "no-cors",
-        //     method:"GET"
-        // };
-
-        // fetch(Url,otherPram)
-        // .then(data=>{return data.json()})
-        // .then(res=>{console.log(res)})
-        // .catch(error=>console.log(error))
         
         $(document).ready(function(){
-            const Url = 'https://maps.googleapis.com/maps/api/place/textsearch/json?query=pizza+in+Ellensburg&key=AIzaSyBbTOqK2j2A-iIAdAcC7I4s8K39Iw1reIU';
             $('#button2').click(function(){
+                var data={
+                    userZip: $('#zaddress').val()
+                }
+                const Url = `https://maps.googleapis.com/maps/api/place/textsearch/json?query=pizza+near+${ data.userZip }&key=AIzaSyBbTOqK2j2A-iIAdAcC7I4s8K39Iw1reIU`;
+                console.log(data.userZip)
                 $.ajax({
                     url: Url,
                     type: "POST",
                     contentType: 'application/json',
                     dataType: 'json',
-                    responseType: 'application/json',
                     headers: {
+                        'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token',
                         "Content-Type":"application/json",
                         'Access-Control-Allow-Origin':'*',
-                        'Access-Control-Allow-Methods':'GET',
+                        'Access-Control-Allow-Methods':'GET, POST'
                     },
                     success: function(result){
-                        console.log(result)
+
+                        function codeAddress() {
+                        geocoder.geocode( { 'address': result.results[1].formatted_address}, function(results, status) {
+                        if (status == 'OK') {
+                            map.setCenter(results[0].geometry.location);
+                            var marker = new google.maps.Marker({
+                                map: map,
+                                position: results[0].geometry.location
+                            });
+                        } else {
+                            alert('Geocode was not successful for the following reason: ' + status);
+                        }
+                        });
+                    }
+                        codeAddress();
+                        console.log(result.results[1].formatted_address + '\n' + result.results[1].name)
                     },
                     error:function(error){
                         console.log(`Error ${error}`)
@@ -67,11 +70,11 @@
         })
         //()
             
-        var geocoder;
-        var map;
+    var geocoder;
+    var map;
   function initialize() {
     geocoder = new google.maps.Geocoder();
-    var latlng = new google.maps.LatLng(-34.397, 150.644);
+    var latlng = new google.maps.LatLng(46.9900977, -120.548778);
     var mapOptions = {
       zoom: 8,
       center: latlng
@@ -79,23 +82,7 @@
     map = new google.maps.Map(document.getElementById('map'), mapOptions);
   }
 
-  function codeAddress() {
-    var address = document.getElementById('zaddress').value;
-
-    
-
-    geocoder.geocode( { 'address': address}, function(results, status) {
-      if (status == 'OK') {
-        map.setCenter(results[0].geometry.location);
-        var marker = new google.maps.Marker({
-            map: map,
-            position: results[0].geometry.location
-        });
-      } else {
-        alert('Geocode was not successful for the following reason: ' + status);
-      }
-    });
-  }
+  
     </script>
     
 
