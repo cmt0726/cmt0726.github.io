@@ -91,7 +91,7 @@ define(["fuzzball"], function(fuzzball) {
                 var matchedIndex = (arrayIndex(pizzaFilter(matches, "Large"), myJsonArray[0]))
                 createElem("sidebar_r", matchedIndex, "P", "pizza_PNG44086.png");
             } else {
-                document.getElementById("sidebar_r").innerText = ''; 
+                document.getElementById("rBox").innerText = ''; 
                 console.log("No Matches!");
             };
         });

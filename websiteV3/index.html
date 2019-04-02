@@ -45,22 +45,25 @@
                         'Access-Control-Allow-Methods':'GET, POST'
                     },
                     success: function(result){
-
+                        
                         function codeAddress() {
-                        geocoder.geocode( { 'address': result.results[1].formatted_address}, function(results, status) {
-                        if (status == 'OK') {
-                            map.setCenter(results[0].geometry.location);
-                            var marker = new google.maps.Marker({
-                                map: map,
-                                position: results[0].geometry.location
-                            });
-                        } else {
-                            alert('Geocode was not successful for the following reason: ' + status);
+                            for(let i = 0; i < 5; i++) {
+                                geocoder.geocode( { 'address': result.results[i].formatted_address}, function(results, status) {
+                                    if (status == 'OK') {
+                                        console.log(result.results[i].formatted_address + '\n' + result.results[i].name)
+                                        map.setCenter(result.results[i].geometry.location);
+                                        var marker = new google.maps.Marker({
+                                        map: map,
+                                        position: result.results[i].geometry.location
+                                        });
+                                    } else {
+                                        alert('Geocode was not successful for the following reason: ' + status);
+                                    }
+                                });
+                            }
                         }
-                        });
-                    }
                         codeAddress();
-                        console.log(result.results[1].formatted_address + '\n' + result.results[1].name)
+                        //console.log(result.results[1].formatted_address + '\n' + result.results[1].name)
                     },
                     error:function(error){
                         console.log(`Error ${error}`)
