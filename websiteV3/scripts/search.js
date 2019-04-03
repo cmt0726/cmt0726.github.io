@@ -57,7 +57,7 @@ define(["fuzzball"], function(fuzzball) {
                 let height = 1000; 
                 document.getElementById("main_content").style.height = `${ height }px`;
 
-                for(let i = 0, j=100; i < array.length; i++, j+=200) {
+                for(let i = 0, j=100; i < array.length; i++, j+=220) {
                     //creates the pizza image
                     makeImage(url, "100", "100", 'rBox');
                     let line = document.createElement("hr");
@@ -97,10 +97,10 @@ define(["fuzzball"], function(fuzzball) {
                 if(hasItemsOnPage){
                 document.getElementById("rBox").innerText = ''; 
                 document.getElementById("faddress").value = '';               
-                console.log("No Matches!");
+                alert("No Matches!");
                 }
                 document.getElementById("faddress").value = '';
-                console.log("No Matches!");
+                alert("No Matches!");
             };
         });
         
