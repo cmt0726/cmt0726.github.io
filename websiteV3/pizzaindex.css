@@ -170,10 +170,10 @@
 
 @media only screen and (max-width: 500px) {
     ::placeholder {
-        font-size: 12px;
+        font-size: 10px;
     }
     .input_Box {
         margin-left: -10px;
-        width: 100px;
+        width: 80px;
     }
 }
