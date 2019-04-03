@@ -7,11 +7,10 @@ define(["fuzzball"], function(fuzzball) {
             return response.json();
         })
         .then(function(myJson){
-            
+            let hasItemsOnPage = false;
             let matches = [];
             let input = document.getElementById("faddress").value;
             let firstArg = input.split(" ")[0];
-            console.log(firstArg)
             Object.values(myJson).forEach(element => {               
                 for(let i = 0; i < element.length; i++) {
                     let split = element[i].split(' ');
@@ -76,6 +75,7 @@ define(["fuzzball"], function(fuzzball) {
                     document.getElementById("main_content").style.height = `${ height + j }px`;
                     hasItems = true;
                 }
+                hasItemsOnPage = true;
                 return result;
             };
 
@@ -88,12 +88,18 @@ define(["fuzzball"], function(fuzzball) {
                 }
                 return index;
             }
-
-            if(matches.length > 0) {
-                var matchedIndex = (arrayIndex(pizzaFilter(matches, "Large"), myJsonArray[0]))
+            var matchedIndex = (arrayIndex(pizzaFilter(matches, "Large"), myJsonArray[0]))
+            if(matchedIndex.length > 0) {
+                console.log(matches.length)
+                
                 createElem("sidebar_r", matchedIndex, "P", "pizza_PNG44086.png");
             } else {
+                if(hasItemsOnPage){
                 document.getElementById("rBox").innerText = ''; 
+                document.getElementById("faddress").value = '';               
+                console.log("No Matches!");
+                }
+                document.getElementById("faddress").value = '';
                 console.log("No Matches!");
             };
         });
