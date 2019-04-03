@@ -146,9 +146,20 @@
 }
 
 @media only screen and (max-width: 765px) {
+
+    #rBox > img {
+        height: 80px;
+        width: 80px;
+    }
+
+    #rBox > p {
+        width: 200px
+    }
+
     .nav_1 {
       width: 80px;
     }
+
     #webTitle {
         font-size: 20px;
     }
@@ -172,11 +183,22 @@
     ::placeholder {
         font-size: 9px;
     }
+
+    .nav_1 {
+        width: 60px;
+        height: 40px;
+    }
+
+    .navText {
+        font-size: 15px;
+        margin-top: 12px;
+    }
+
     .input_Box {
         margin-left: -10px;
         width: 75px;
     }
     #nav_list {
-        background: red;
+        
     }
 }
