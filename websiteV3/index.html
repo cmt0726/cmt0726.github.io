@@ -9,7 +9,9 @@
     <script  src="data.json"></script>   
     <script data-main="scripts/page/common" type="text/javascript" src="scripts/require.js"></script>
     <script>
-        
+
+            const APIKEY = `AIzaSyDiGZCq3s2uzVqCbsiKOeUYvF6xJQ3Wtng`
+
             require(['common'],function(){
                 require(['search']);
                 require(['zipsearch']);
@@ -19,71 +21,106 @@
     </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDiGZCq3s2uzVqCbsiKOeUYvF6xJQ3Wtng&callback=initialize"
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDiGZCq3s2uzVqCbsiKOeUYvF6xJQ3Wtng&libraries=places"
     type="text/javascript">
     </script>
+    
 
     <script>
-        const Url = 'https://maps.googleapis.com/maps/api/place/textsearch/json?query=pizza+in+Ellensburg&key=AIzaSyBbTOqK2j2A-iIAdAcC7I4s8K39Iw1reIU';
         
         $(document).ready(function(){
             $('#button2').click(function(){
                 var data={
                     userZip: $('#zaddress').val()
                 }
-                const Url = `https://maps.googleapis.com/maps/api/place/textsearch/json?query=pizza+near+${ data.userZip }&key=AIzaSyBbTOqK2j2A-iIAdAcC7I4s8K39Iw1reIU`;
-                console.log(data.userZip)
-                $.ajax({
-                    url: Url,
-                    type: "POST",
-                    contentType: 'application/json',
-                    dataType: 'json',
-                    headers: {
-                        'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token',
-                        "Content-Type":"application/json",
-                        'Access-Control-Allow-Origin':'*',
-                        'Access-Control-Allow-Methods':'GET, POST'
-                    },
-                    success: function(result){ 
-                        console.log('test');                     
-                        function codeAddress() {
-                            for(let i = 0; i < 10; i++) {
-                                geocoder.geocode( { 'address': result.results[i].formatted_address}, function(results, status) {
-                                    if (status == 'OK') {
-                                        console.log(result.results[i].formatted_address + '\n' + result.results[i].name)
-                                        map.setCenter(result.results[i].geometry.location);
-                                        var marker = new google.maps.Marker({
-                                        map: map,
-                                        zoom: 12,
-                                        position: result.results[i].geometry.location
-                                        });
-                                    } else {
-                                        alert('Geocode was not successful for the following reason: ' + status);
-                                    }
-                                });
-                            }
-                        }
-                        codeAddress();
-                    },
-                    error:function(error){
-                        console.log(`Error ${ error }`)
-                    },
-                })
             })
         })
-        //()
             
     var geocoder;
     var map;
-  function initialize() {
-    geocoder = new google.maps.Geocoder();
+    function initialize() {
+    
+    
     var latlng = new google.maps.LatLng(46.9900977, -120.548778);
     var mapOptions = {
       zoom: 8,
       center: latlng
     }
     map = new google.maps.Map(document.getElementById('map'), mapOptions);
-  }
+    
+    }
+
+    function callback(results, status) {
+        if (status == google.maps.places.PlacesServiceStatus.OK) {
+            for (var i = 0; i < results.length; i++) {
+                var place = results[i];
+                
+               if(results[i].name.indexOf("Pizza") !== -1){
+
+                createMarker(results[i]);
+                
+                }
+            }
+        }
+    }
+
+      function createMarker(place) {
+        var marker = new google.maps.Marker({
+          map: map,
+          position: place.geometry.location
+        });
+
+        google.maps.event.addListener(marker, 'click', function() {
+          infowindow.setContent(place.name);
+          infowindow.open(map, this);
+        });
+      }
+      
+      function callUser() {
+        var data={
+         userZip: $('#zaddress').val()
+        }
+        var lat = '';
+        var lng = '';
+        var address = data.userZip;
+        
+            geocoder = new google.maps.Geocoder();
+            geocoder.geocode({
+                address: data.userZip
+                },
+            function(results, status) {
+            if (status === 'OK') {
+                //console.log(results[0].geometry.location.lat());
+                var lat = results[0].geometry.location.lat();
+                //console.log(lat)
+                var lng = results[0].geometry.location.lng();
+                var userLoc = new google.maps.LatLng(lat,lng);
+
+                var request = {
+                location: userLoc,
+                radius: '15000',
+                type: ['restaurant'],
+                };
+
+                service = new google.maps.places.PlacesService(map);
+                service.nearbySearch(request, callback);
+                
+                service.findPlaceFromQuery(request, function(results, status) {
+                if (status === google.maps.places.PlacesServiceStatus.OK) {
+                    for (var i = 0; i < results.length; i++) {
+                        console.log(results)
+
+                        createMarker(results[i]);
+                    }
+                        map.setCenter(results[i].geometry.location);
+                    }
+                });
+            return lat, lng;
+            } else {
+                console.log("Geocoding couldn't convert string address to lat/long points");
+            }
+        }); // end of geocoder method.
+      }
 
   
     </script>
@@ -121,7 +158,7 @@
                         placeholder="Zipcode..." maxlength="15" class="input_Box"><br>
                     </div>
                     <div class="submit">
-                        <button type="button" id="button2" onclick="">Button</button>
+                        <button type="button" id="button2" onclick="callUser()">Button</button>
                     </div>
                 </form>
                 <hr class="linebreak">
