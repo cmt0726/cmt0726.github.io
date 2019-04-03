@@ -10,11 +10,13 @@ define(["fuzzball"], function(fuzzball) {
             
             let matches = [];
             let input = document.getElementById("faddress").value;
+            let firstArg = input.split(" ")[0];
+            console.log(firstArg)
             Object.values(myJson).forEach(element => {               
                 for(let i = 0; i < element.length; i++) {
                     let split = element[i].split(' ');
                     for(let j=0; j < split.length; j++) {
-                        if(fuzz.ratio(input, split[j]) >= 95) {
+                        if(fuzz.ratio(firstArg, split[j]) >= 95) {
                             matches.push(element[i])
                         }
                     }
