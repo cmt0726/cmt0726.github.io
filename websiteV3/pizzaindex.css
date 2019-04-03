@@ -145,3 +145,25 @@
     bottom: 5px;
 }
 
+@media only screen and (max-width: 765px) {
+    .nav_1 {
+      width: 80px;
+    }
+    #webTitle {
+        font-size: 20px;
+    }
+
+    #map{
+        height: 200px;
+    }
+
+    .inputBox {
+        text-align: left;
+    }
+
+    .input_Box {
+        margin-left: -10px;
+        width: 110px;
+    }
+
+  }

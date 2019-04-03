@@ -79,6 +79,10 @@ define(["fuzzball"], function(fuzzball) {
                 return result;
             };
 
+            function setElemEmpty(id){
+                document.getElementById(id).innerText = '';
+            }
+
             function arrayIndex(array, json) {
                 let index = [];
                 for(let i = 0; i < array.length; i++) {
@@ -93,12 +97,14 @@ define(["fuzzball"], function(fuzzball) {
                 console.log(matches.length)
                 
                 createElem("sidebar_r", matchedIndex, "P", "pizza_PNG44086.png");
+                window.location.href = "#rBox";
             } else {
                 if(hasItemsOnPage){
-                document.getElementById("rBox").innerText = ''; 
+                setElemEmpty("rBox"); 
                 document.getElementById("faddress").value = '';               
                 alert("No Matches!");
                 }
+                setElemEmpty("rBox");
                 document.getElementById("faddress").value = '';
                 alert("No Matches!");
             };
