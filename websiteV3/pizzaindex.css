@@ -170,11 +170,11 @@
 
 @media only screen and (max-width: 500px) {
     ::placeholder {
-        font-size: 10px;
+        font-size: 9px;
     }
     .input_Box {
         margin-left: -10px;
-        width: 80px;
+        width: 75px;
     }
     #nav_list {
         background: red;
