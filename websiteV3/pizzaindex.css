@@ -151,6 +151,9 @@
 }
 
 @media only screen and (max-width: 765px) {
+    html, body {
+        overflow-x: hidden;
+    }
 
     #rBox > img {
         height: 80px;
