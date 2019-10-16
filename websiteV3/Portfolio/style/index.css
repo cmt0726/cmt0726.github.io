@@ -1,0 +1,137 @@
+html {
+    scroll-behavior: smooth;
+}
+
+#main{
+    margin: 0px;
+    padding:0px;
+    background-color: antiquewhite;
+    overflow-x: hidden;
+    height: 1000px;
+    position: relative;
+}
+
+#personalStory {
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;   
+}
+
+.textWrapper {
+    font-family: 'Roboto Mono', monospace;
+}
+
+#introTitleBar {
+    position: relative;
+    font-family: 'Abel', sans-serif;
+    display: flex;
+    justify-content: space-between;
+    font-size: 60px;
+    /*
+    transform: rotate(-13deg);
+    top: 180px;
+    width: 60%;
+    */
+}
+
+#name{
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+#appName {
+    margin-right: 20px;
+    margin-top: 10px;
+}
+
+#rotatedTitleBar {
+    background: rgb(0, 132, 255);
+    border-style: groove;
+    position: absolute;
+    width: 130%;
+    height: 600px;
+    top: -400px;
+    left: -100px;
+    z-index: -1;
+    transform: rotate(-13deg);
+    box-shadow: 10px 10px 10px grey;
+    
+}
+
+#dropDown {
+    position: absolute;
+    top: 100px;
+    left: 48.5%;
+    height: 180px;
+    width: 50px;
+    background: rgb(255, 187, 0);
+    z-index: -2;
+    border-radius: 5px;
+    animation-duration: 1.5s;
+    animation-name: dropdown;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#clickable{
+    position: absolute;
+    top: 190px;
+    left: 48.5%;
+    height: 110px;
+    width: 50px;
+}
+
+@keyframes dropdown{
+    
+    from {top: 100px;}
+    to {top: 120px;}
+     
+}
+
+@keyframes dropUp {
+    from{top: 100px;}
+    to{top: 0px;} 
+}
+
+#projects {
+    position: absolute;
+    top: -100px;
+    
+    left: 10%;
+    display: flex;
+    z-index: -2;
+    width: 80%;
+    justify-content: space-between;
+}
+
+.projectImg{
+    height: 100px;
+    width: 100px;
+}
+
+.projectLink {
+    text-decoration: none;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.moveable {
+    animation-name: dropdownProj;
+    animation-duration: 1s;
+    
+}
+
+@keyframes dropdownProj {
+    from{top:-100px;}
+    to{top: 450px;}
+}
+
+.projectTitle {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 20px;
+}
