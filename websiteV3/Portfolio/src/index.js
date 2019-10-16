@@ -10,7 +10,7 @@ boxOne.addEventListener('animationend', () => {
     boxOne.style.zIndex = "1";
     boxOne.className = "";
     boxOne.style.top = 450 + 'px';
-    window.location.href = "http://127.0.0.1:5500/index.html#projects"
+    window.location.href = "https://cmt0726.github.io/websiteV3/Portfolio/index.html#projects"
     boxTwo.addEventListener('animationend', () => {
         boxTwo.remove();
     })
