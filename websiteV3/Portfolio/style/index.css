@@ -135,3 +135,9 @@ html {
     font-family: 'Roboto Mono', monospace;
     font-size: 20px;
 }
+
+@media only screen and (min-width: 1500px) {
+    #rotatedTitleBar {
+        transform: rotate(-10deg);
+    }
+}
