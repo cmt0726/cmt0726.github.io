@@ -107,9 +107,32 @@ html {
     justify-content: space-between;
 }
 
+.project {
+    background: rgb(205, 231, 241);
+    height: 100%;
+    width: 15%;
+    transition: all .2s ease-in-out;
+    border-style: solid;
+    display: flex;
+    justify-content: center;
+    border-radius: 3px;
+}
+
+.project > a{
+    
+    width: 90%;
+    height: 100%;
+}
+
+.project:hover {
+    transform: scale(1.5)
+}
+
 .projectImg{
-    height: 100px;
-    width: 100px;
+    margin-top:10px;
+    height: 120px;
+    width: 120px;
+    border-radius: 3px;
 }
 
 .projectLink {
@@ -133,7 +156,15 @@ html {
 
 .projectTitle {
     font-family: 'Roboto Mono', monospace;
-    font-size: 20px;
+    display: flex;
+    font-size: 16px;
+    background: rgb(206, 205, 205);
+    margin: 4px;
+    border-style: solid;
+    width: 90%;
+    justify-content: center;
+    border-radius: 3px;
+    border-width: 1px;
 }
 
 @media only screen and (min-width: 1500px) {
