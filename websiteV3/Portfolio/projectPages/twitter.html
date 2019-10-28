@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" id="content">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>PROJECT</title>
+    <!--
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    -->
+    <link rel="stylesheet" href="./projectPage.css">
+</head>
+<body>
+    
+    <nav id = "nav">
+        <div> <a href="../index.html" class = "navLink">Home</a></div>
+        <div> <a href="./chess.html" class = "navLink">Chess Engine</a> </div>
+        <div> <a href="./journal.html" class = "navLink">Journal App</a> </div>
+        <div> <a href="http://cmt0726.github.io/websiteV3/" class = "navLink">Pizza Picker</a> </div>
+    </nav>
+
+    <div id = "projectTitle">
+        Twitter Bot
+    </div>
+    <div id = "main">
+        <div id = "sidebar">
+            <div id = "projectLanguageListTitle">Project Languages/Techniques</div>
+            <hr class="horzLine">
+            <ul>
+                <li class="sidebarItem">Python</li>
+                <li class="sidebarItem">Tweepy</li>
+            </ul>
+        </div>
+        <div id="mainContent">
+            <div class="projectContent">
+                <img src = "../images/twitterBotPosting.PNG" class = "projectImage">
+                <div class = "projectImageDescriptor">
+                    > The main function that replaces the tweets text and then ultimately tweets out the altered text
+                </div>
+            </div>
+            <div class="projectContent">
+                    <img src = "../images/downloadingTweets.PNG" class = "projectImage">
+                    <div class = "projectImageDescriptor">
+                        > This function downloads an initial set of tweets and instantiates the twitter API with our AUTH fields
+                    </div>
+            </div>
+            <div class="projectContent">
+                    <img src = "../images/sampleCSVoutput.PNG" class = "projectImage">
+                    <div class = "projectImageDescriptor">
+                        > After downloading the requested tweets they are then formatted and saved to a .csv file
+                </div>
+            </div>
+            <div class="projectContent">
+                    <img src = "../images/positiveTweetExample.PNG" class = "projectImage">
+                    <div class = "projectImageDescriptor">
+                        > The end product shows a slightly more positive version of our Commander in Chief
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer id="footer">
+        <div>Definetly a fun project for me! This taught me the ins and outs of .csv files as well as using someone else's API</div>
+        <div id ="footerLink"><a href="#nav" class="link">Back To Top</a></div>
+    </footer>
+    <!--
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    -->
+</body>
+</html>

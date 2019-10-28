@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" id="content">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Chess Engine</title>
+    <!--
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    -->
+    <link rel="stylesheet" href="./projectPage.css">
+</head>
+<body>
+    
+    <nav id = "nav">
+        <div> <a href="../index.html" class = "navLink">Home</a></div>
+        <div> <a href="./journal.html" class = "navLink">Journal</a> </div>
+        <div> <a href="./twitter.html" class = "navLink">Twitter</a> </div>
+        <div> <a href="http://cmt0726.github.io/websiteV3/" class = "navLink">Pizza Picker</a> </div>
+    </nav>
+
+    <div id = "projectTitle">
+        Chess Engine
+    </div>
+    <div id = "main">
+        <div id = "sidebar">
+            <div id = "projectLanguageListTitle">Project Languages/Techniques</div>
+            <hr class="horzLine">
+            <ul>
+                <li class="sidebarItem">Javascript</li>
+                <li class="sidebarItem">NodeJS</li>
+            </ul>
+            <hr class="horzLine">
+            <div id = "projectLanguageListTitle">> <a href="">Github</a></div>
+        </div>
+        <div id="mainContent">
+            <div class="projectContent">
+                <img src = "../images/ChessEnginePic.PNG" class = "projectImage">
+                <div class = "projectImageDescriptor">
+                    > The main Constructor for the Chess Engine
+                </div>
+            </div>
+            <div class="projectContent">
+                    <img src = "../images/chessInCheck.PNG" class = "projectImage">
+                    <div class = "projectImageDescriptor">
+                        > Goes over the board and tests all current possible moves to check if the King is in Check
+                    </div>
+            </div>
+            <div class="projectContent">
+                    <img src = "../images/chessDecl.PNG" class = "projectImage">
+                    <div class = "projectImageDescriptor">
+                        > The Object declarations for all of the Chess Pieces, including the board itself that all pieces inherit from
+                    </div>
+            </div>
+            <div class="projectContent">
+                    <img src = "../images/externUsage.PNG" class = "projectImage">
+                    <div class = "projectImageDescriptor">
+                        > An example of external usage in another file, each move updates the board if it is a valid move. It is then trivial to iterate over the board object to render chess pieces or do other kinds of calculations/manipulations
+                    </div>
+            </div>
+        </div>
+    </div>
+    <footer id="footer">
+        <div>This is been a project of mine for quite some time now and it taught me the most about proper code structure than anything else has</div>
+        <div id ="footerLink"><a href="#nav" class="link">Back To Top</a></div>
+    </footer>
+    <!--
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    -->
+</body>
+</html>
