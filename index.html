@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <title>Portfolio</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" 
+            integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" 
+            crossorigin="anonymous" />
+        <link rel="stylesheet" href="index.css">
+        <link href = "https://fonts.googleapis.com/css?family=Source+Code+Pro:400,900|Source+Sans+Pro:300,900&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <header>
+            <div class="logo">
+                
+                <img src="images/logo.png" alt="An image of myself">
+            </div>
+            <button class=nav-toggle aria-label="toggle navigation">
+                <span class="hamburger"></span>
+            </button>
+            <nav class="nav">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="#home" class="nav__link">Home</a></li>
+                    <li class="nav__item"><a href="#about" class="nav__link">About me</a></li>
+                    <li class="nav__item"><a href="#work" class="nav__link">My Projects</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- Intro  -->
+        <section class="intro" id="home">
+            <h1 class="section__title section__title--intro">
+                Hi, I am <strong>Connor Teige</strong>
+            </h1>
+            <p class="section__subtitle section__subtitle--intro">
+                Full time student
+            </p>
+            <img src="images/File_000.jpeg" alt="Image of myself" class="intro__img">
+        </section>
+      
+        <!--About Me-->
+        <section class="about-me" id="about">
+            <h2 class="section__title section__title--about">About Me</h2>
+            <p class="section__subtitle section__subtitle--about">Who I am</p>
+
+            <div class="about-me__body">
+                <p class="about-me__state" >
+                    I'm a native Washingtonian with a passion for programming and all things
+                    computer science. I've known since I was 12 that I was destined to become a programmer
+                    after my older brother, a WWU CS graduate, brought out the whiteboard and markers and showed me how a computer works.
+
+                </p>
+                <p class="about-me__state">
+                    I am also an avid musician having played Tenor sax for almost a decade now. 
+                    I enjoy all things challenging and I naturally take the lead in group projects.
+
+                </p>
+            </div>
+
+            
+
+            <p class="section__subtitle section__subtitle--about">What I do</p>
+            <div class ="about-me__body">
+                <p class="about-me__state">As stated before I play the saxophone, focusing mostly around jazz. But aside from that
+                    , I'm always looking for new and exciting projects. Below I have listed all the ones I'm the most proud of.
+                 </p>
+                <p class="about-me__state">
+                    For experience I've worked with, in no particular order: <strong>Java</strong>, <strong>Javascript</strong>, <strong>Python</strong>, MySQL, <strong>C++</strong>, <strong>C#</strong>, and NodeJS  
+                </p>
+            </div>
+            <!--<img src="images/File_000.jpeg" alt="" class="about-me__img"> -->
+            <!-- <a href="#work" class="btn">My Projects</a> -->
+        </section>
+
+       
+        <!--Projects-->
+        <section class="my-projects" id="work">
+            <h2 class="section__title">My Projects</h2>
+            
+
+            <div class="portfolio">
+                <a href="https://github.com/cmt0726/board" class="portfolio__item" target="_blank">
+                    <figure>
+                        <img src="images/boardgame.PNG" alt="" class="portfolio__img">
+                        <div class="portfolio__tag">DeadWood</div>
+                    </figure>
+                </a>
+                
+            </div>
+        </section>
+
+        <!--Footer-->
+        <footer class="footer">
+            <a href="mailto:connorteige@gmail.com" class="footer__link">connorteige@gmail.com</a>
+            
+        </footer>
+
+        <script src="index.js"></script>
+    </body>
+</html>
