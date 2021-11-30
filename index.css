@@ -232,10 +232,10 @@ nav {
     box-shadow: var(--bs);
 }
 .my-projects {
-    /*
-    background: var(--clr-dark);
-    color: var(--clr-light);
-    */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .about-me {
